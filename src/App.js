@@ -1,16 +1,20 @@
-import './App.css';
+import { useState } from "react";
+import "./App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Spinner from 'react-bootstrap/Spinner';
-import Badge from 'react-bootstrap/Badge';
+import Login from "./components/Login";
 
 function App() {
+  const [user, setUser] = useState();
+
   return (
     <div className="App">
-
-       <Spinner animation="border" variant="danger" />
-       <br />
-       <Badge bg="secondary">Hello World</Badge>
-
+      <Login newUser={setUser}/>
+      {
+        user?
+        <h2>Hello welcome {user} yuou have logged in</h2>
+        :
+        <h2>Please log in</h2>
+      }
     </div>
   );
 }
